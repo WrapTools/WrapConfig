@@ -1,7 +1,6 @@
 # secrets.py
 
 import logging
-import configparser
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
@@ -19,7 +18,7 @@ class SecretsManager:
     secrets.set_secret("API_KEY", "12345")
     my_api_key = secrets.get_secret("API_KEY")
     """
-    def __init__(self, env_file):
+    def __init__(self, env_file=".env"):
         self.env_file = Path(env_file)
         if not self.env_file.exists():
             self.env_file.touch()  # Create file if it doesn't exist
